@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Karaoke</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="player-section">
+            <div class="header">
+                <i class="fas fa-microphone-alt"></i>
+                <h1>YouTube Karaoke</h1>
+            </div>
+            <div class="player-wrapper">
+                <div id="player"></div>
+            </div>
+            <div class="player-controls">
+                <button class="control-btn prev-btn" onclick="playPrevious()" title="Previous">
+                    <i class="fas fa-step-backward"></i> Previous
+                </button>
+                <button class="control-btn skip-btn" onclick="playNextInQueue()" title="Skip to next">
+                    <i class="fas fa-step-forward"></i> Skip
+                </button>`
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="search-section">
+                <h2 class="section-title">
+                    <i class="fas fa-search"></i> Search Songs
+                </h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for karaoke songs...">
+                    <div class="button-group">
+                        <button onclick="searchVideos()">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                        <button onclick="pasteYouTubeLink()" title="Paste YouTube URL from clipboard">
+                            <i class="fas fa-paste"></i> Paste
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h2 class="section-title">
+                    <i class="fas fa-list"></i> Search Results
+                </h2>
+                <div id="searchResults" class="empty-state">
+                    <i class="fas fa-info-circle"></i> Search for songs to see results
+                </div>
+            </div>
+
+            <div class="queue-section">
+                <h2 class="section-title">
+                    <i class="fas fa-music"></i> Up Next (<span id="queueCount">0</span>)
+                </h2>
+                <div id="queueList" class="empty-state">
+                    <i class="fas fa-inbox"></i> Queue is empty
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
